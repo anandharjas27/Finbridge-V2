@@ -48,8 +48,8 @@ st.markdown("""
     --teal: #0EC4B0;
     --red-soft: #E05C5C;
     --green-soft: #3EC87A;
-    --text-primary: #3B82F6;
-    --text-secondary: #3B82F6;
+    --text-primary: #0284C7;
+    --text-secondary: #0284C7;
     --card-bg: #112240;
     --border: #1E3A5F;
 }
@@ -86,7 +86,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text-primary);
 }
 .section-header {
     font-weight: 600;
-    color: #3B82F6;
+    color: #0284C7;
     font-size: 0.95rem;
     padding-bottom: 0.6rem;
     margin-bottom: 1rem;
@@ -667,7 +667,7 @@ with st.sidebar:
         lbl, bdg, clr = get_score_band(fb)
         st.markdown(f"""
         <div style='text-align:center;padding:1rem;background:#112240;border-radius:10px;border:1px solid #1E3A5F;'>
-            <div style='font-size:0.7rem;color:#3B82F6;letter-spacing:0.1em;text-transform:uppercase;'>FinBridge Score</div>
+            <div style='font-size:0.7rem;color:#0284C7;letter-spacing:0.1em;text-transform:uppercase;'>FinBridge Score</div>
             <div style='font-family:"Playfair Display",serif;font-size:2.5rem;font-weight:700;color:#F0B429;'>{fb}</div>
             <span class='badge {bdg}'>{lbl}</span>
         </div>
@@ -819,14 +819,14 @@ elif st.session_state.step == "statement":
             # ── Upload Section ───────────────────────────────────────────────
             uc1, uc2 = st.columns(2, gap="medium")
             with uc1:
-                st.markdown(f"<div style='font-size:0.82rem;color:#3B82F6;margin-bottom:0.3rem;'>📄 Bank Statement — FY {year}-{str(year+1)[2:]}</div>", unsafe_allow_html=True)
+                st.markdown(f"<div style='font-size:0.82rem;color:#0284C7;margin-bottom:0.3rem;'>📄 Bank Statement — FY {year}-{str(year+1)[2:]}</div>", unsafe_allow_html=True)
                 stmt_file = st.file_uploader(
                     f"Upload PDF", type=["pdf"],
                     key=f"stmt_file_{year}",
                     label_visibility="collapsed"
                 )
             with uc2:
-                st.markdown(f"<div style='font-size:0.82rem;color:#3B82F6;margin-bottom:0.3rem;'>📋 ITR / Form-16 — FY {year}-{str(year+1)[2:]}</div>", unsafe_allow_html=True)
+                st.markdown(f"<div style='font-size:0.82rem;color:#0284C7;margin-bottom:0.3rem;'>📋 ITR / Form-16 — FY {year}-{str(year+1)[2:]}</div>", unsafe_allow_html=True)
                 itr_file = st.file_uploader(
                     f"Upload PDF", type=["pdf"],
                     key=f"itr_file_{year}",
@@ -918,7 +918,7 @@ elif st.session_state.step == "statement":
                 color_net = "#3EC87A" if calc_net >= 0 else "#E05C5C"
                 st.markdown(f"""
                 <div style='background:#0A1628;border:1px solid #1E3A5F;border-radius:8px;padding:0.7rem 1rem;
-                            margin-top:0.5rem;font-size:0.82rem;color:#3B82F6;display:flex;gap:1.5rem;flex-wrap:wrap;'>
+                            margin-top:0.5rem;font-size:0.82rem;color:#0284C7;display:flex;gap:1.5rem;flex-wrap:wrap;'>
                     <span>Income <b style='color:#3EC87A;'>₹{inc:,.0f}</b></span>
                     <span>Expenses <b style='color:#E05C5C;'>₹{exp:,.0f}</b></span>
                     <span>EMIs <b style='color:#F0B429;'>₹{emi:,.0f}</b></span>
@@ -1028,7 +1028,7 @@ elif st.session_state.step == "loan":
                  else "<span class='badge badge-gold' style='font-size:0.7rem;'>📅 Industry Avg</span>"
     st.markdown(f"""
     <div style='display:flex;align-items:center;gap:0.8rem;margin-bottom:1.5rem;'>
-        <span style='font-size:0.82rem;color:#3B82F6;'>Rate data: {rates_data['source']}</span>
+        <span style='font-size:0.82rem;color:#0284C7;'>Rate data: {rates_data['source']}</span>
         {live_badge}
     </div>
     """, unsafe_allow_html=True)
@@ -1057,10 +1057,10 @@ elif st.session_state.step == "loan":
             fig_h = go.Figure(go.Indicator(
                 mode="gauge+number",
                 value=hd["avg"],
-                title={"text": "Avg Home Loan Rate (%)", "font": {"size": 13, "color": "#3B82F6"}},
+                title={"text": "Avg Home Loan Rate (%)", "font": {"size": 13, "color": "#0284C7"}},
                 number={"suffix": "% p.a.", "font": {"size": 32, "color": "#F0B429"}},
                 gauge={
-                    "axis": {"range": [7, 12], "tickfont": {"color": "#3B82F6", "size": 9}},
+                    "axis": {"range": [7, 12], "tickfont": {"color": "#0284C7", "size": 9}},
                     "bar":  {"color": "#F0B429", "thickness": 0.25},
                     "bgcolor": "#112240",
                     "steps": [
@@ -1074,10 +1074,10 @@ elif st.session_state.step == "loan":
                                 margin=dict(t=40, b=10, l=20, r=20))
             st.plotly_chart(fig_h, use_container_width=True)
             st.markdown(f"""
-            <div style='text-align:center;font-size:0.8rem;color:#3B82F6;background:#112240;border:1px solid #1E3A5F;border-radius:8px;padding:0.6rem;'>
+            <div style='text-align:center;font-size:0.8rem;color:#0284C7;background:#112240;border:1px solid #1E3A5F;border-radius:8px;padding:0.6rem;'>
                 RBI Repo Rate: <b style='color:#F0B429;'>{rates_data['repo']}%</b> &nbsp;|&nbsp;
                 Spread: <b style='color:#0EC4B0;'>~2.0–3.5%</b><br>
-                Market Range: <b style='color:#3B82F6;'>{hd['low']}% – {hd['high']}%</b>
+                Market Range: <b style='color:#0284C7;'>{hd['low']}% – {hd['high']}%</b>
             </div>
             """, unsafe_allow_html=True)
 
@@ -1101,10 +1101,10 @@ elif st.session_state.step == "loan":
             fig_p = go.Figure(go.Indicator(
                 mode="gauge+number",
                 value=pd_r["avg"],
-                title={"text": "Avg Personal Loan Rate (%)", "font": {"size": 13, "color": "#3B82F6"}},
+                title={"text": "Avg Personal Loan Rate (%)", "font": {"size": 13, "color": "#0284C7"}},
                 number={"suffix": "% p.a.", "font": {"size": 32, "color": "#E05C5C"}},
                 gauge={
-                    "axis": {"range": [10, 36], "tickfont": {"color": "#3B82F6", "size": 9}},
+                    "axis": {"range": [10, 36], "tickfont": {"color": "#0284C7", "size": 9}},
                     "bar":  {"color": "#E05C5C", "thickness": 0.25},
                     "bgcolor": "#112240",
                     "steps": [
@@ -1118,8 +1118,8 @@ elif st.session_state.step == "loan":
                                 margin=dict(t=40, b=10, l=20, r=20))
             st.plotly_chart(fig_p, use_container_width=True)
             st.markdown(f"""
-            <div style='text-align:center;font-size:0.8rem;color:#3B82F6;background:#112240;border:1px solid #1E3A5F;border-radius:8px;padding:0.6rem;'>
-                Market Range: <b style='color:#3B82F6;'>{pd_r['low']}% – {pd_r['high']}%</b><br>
+            <div style='text-align:center;font-size:0.8rem;color:#0284C7;background:#112240;border:1px solid #1E3A5F;border-radius:8px;padding:0.6rem;'>
+                Market Range: <b style='color:#0284C7;'>{pd_r['low']}% – {pd_r['high']}%</b><br>
                 Avg (unsecured, mid-credit): <b style='color:#E05C5C;'>{pd_r['avg']}% p.a.</b>
             </div>
             """, unsafe_allow_html=True)
@@ -1174,13 +1174,13 @@ elif st.session_state.step == "loan":
 
                 st.markdown(f"""
                 <div style='background:#0A1628;border:1px solid #1E3A5F;border-radius:8px;padding:0.8rem;margin:0.8rem 0;font-size:0.82rem;'>
-                    <b style='color:#F0B429;'>Industry:</b> <span style='color:#3B82F6;'>{industry}</span><br>
-                    <b style='color:#F0B429;'>Market Rate Range:</b> <span style='color:#3B82F6;'>{rate_lo:.1f}% – {rate_hi:.1f}% p.a.</span><br>
-                    <b style='color:#F0B429;'>Max Tenure:</b> <span style='color:#3B82F6;'>Up to {max_tenure_yr} years</span>
+                    <b style='color:#F0B429;'>Industry:</b> <span style='color:#0284C7;'>{industry}</span><br>
+                    <b style='color:#F0B429;'>Market Rate Range:</b> <span style='color:#0284C7;'>{rate_lo:.1f}% – {rate_hi:.1f}% p.a.</span><br>
+                    <b style='color:#F0B429;'>Max Tenure:</b> <span style='color:#0284C7;'>Up to {max_tenure_yr} years</span>
                 </div>
                 <div style='background:rgba(240,180,41,0.08);border:1px solid rgba(240,180,41,0.3);border-radius:8px;padding:0.8rem;font-size:0.85rem;color:#F0B429;'>
                     🎯 <b>Your Assigned Rate: {assigned_rate:.2f}% p.a.</b><br>
-                    <span style='font-size:0.75rem;color:#3B82F6;'>Determined by FinBridge Score {fb} within {rate_lo}–{rate_hi}% range</span>
+                    <span style='font-size:0.75rem;color:#0284C7;'>Determined by FinBridge Score {fb} within {rate_lo}–{rate_hi}% range</span>
                 </div>
                 """, unsafe_allow_html=True)
 
@@ -1220,7 +1220,7 @@ elif st.session_state.step == "loan":
                 bar_color = "#3EC87A" if eligible_pct >= 90 else "#F0B429" if eligible_pct >= 60 else "#E05C5C"
                 st.markdown(f"""
                 <div style='margin:1rem 0;'>
-                    <div style='display:flex;justify-content:space-between;font-size:0.8rem;color:#3B82F6;margin-bottom:0.3rem;'>
+                    <div style='display:flex;justify-content:space-between;font-size:0.8rem;color:#0284C7;margin-bottom:0.3rem;'>
                         <span>Eligibility Coverage</span><span>{eligible_pct:.1f}%</span>
                     </div>
                     <div style='background:#1E3A5F;border-radius:50px;height:10px;'>
@@ -1280,16 +1280,16 @@ elif st.session_state.step == "score":
     with col_score:
         st.markdown(f"""
         <div class="score-hero">
-            <div style='font-size:0.8rem;color:#3B82F6;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;'>FinBridge Credit Score</div>
+            <div style='font-size:0.8rem;color:#0284C7;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;'>FinBridge Credit Score</div>
             <div class="score-num">{fb}</div>
             <div style='margin:0.8rem 0;'>
                 <span class='badge {badge}' style='font-size:0.95rem;padding:0.4rem 1.2rem;'>{label}</span>
             </div>
-            <div style='font-size:0.8rem;color:#3B82F6;'>Score Range: 300 – 900</div>
-            <div style='font-size:0.8rem;color:#3B82F6;margin-top:0.3rem;'>
-                Assessed for: <b style="color:#3B82F6">{prof.get("name","Applicant")}</b>
+            <div style='font-size:0.8rem;color:#0284C7;'>Score Range: 300 – 900</div>
+            <div style='font-size:0.8rem;color:#0284C7;margin-top:0.3rem;'>
+                Assessed for: <b style="color:#0284C7">{prof.get("name","Applicant")}</b>
             </div>
-            <div style='font-size:0.8rem;color:#3B82F6;'>Profile: {prof.get("profile_type","")}</div>
+            <div style='font-size:0.8rem;color:#0284C7;'>Profile: {prof.get("profile_type","")}</div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -1311,12 +1311,12 @@ elif st.session_state.step == "score":
             mode="gauge+number+delta",
             value=fb,
             delta={"reference": ci, "valueformat": ".0f", "prefix": "vs Traditional: "},
-            title={"text": "FinBridge Score", "font": {"size": 14, "color": "#3B82F6"}},
+            title={"text": "FinBridge Score", "font": {"size": 14, "color": "#0284C7"}},
             number={"font": {"size": 48, "color": "#F0B429"}},
             gauge={
                 "axis": {"range": [300, 900], "tickwidth": 1, "tickcolor": "#1E3A5F",
                          "tickvals": [300, 450, 550, 650, 700, 750, 900],
-                         "tickfont": {"color": "#3B82F6", "size": 10}},
+                         "tickfont": {"color": "#0284C7", "size": 10}},
                 "bar": {"color": color, "thickness": 0.25},
                 "bgcolor": "#112240", "borderwidth": 0,
                 "steps": [
@@ -1331,7 +1331,7 @@ elif st.session_state.step == "score":
         ))
         fig_gauge.update_layout(
             height=280, paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-            font={"color": "#3B82F6"}, margin=dict(t=40, b=10, l=30, r=30),
+            font={"color": "#0284C7"}, margin=dict(t=40, b=10, l=30, r=30),
         )
         st.plotly_chart(fig_gauge, use_container_width=True)
 
@@ -1356,10 +1356,10 @@ elif st.session_state.step == "score":
         ))
         fig_radar.update_layout(
             polar=dict(bgcolor="rgba(0,0,0,0)",
-                       radialaxis=dict(visible=True, range=[0, 25], gridcolor="#1E3A5F", tickfont=dict(color="#3B82F6", size=9)),
-                       angularaxis=dict(tickfont=dict(color="#3B82F6", size=10), gridcolor="#1E3A5F")),
+                       radialaxis=dict(visible=True, range=[0, 25], gridcolor="#1E3A5F", tickfont=dict(color="#0284C7", size=9)),
+                       angularaxis=dict(tickfont=dict(color="#0284C7", size=10), gridcolor="#1E3A5F")),
             paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-            showlegend=True, legend=dict(font=dict(color="#3B82F6", size=10)),
+            showlegend=True, legend=dict(font=dict(color="#0284C7", size=10)),
             height=320, margin=dict(t=20, b=20, l=20, r=20),
         )
         st.plotly_chart(fig_radar, use_container_width=True)
@@ -1375,13 +1375,13 @@ elif st.session_state.step == "score":
                                   marker_color="rgba(255,255,255,0.07)", marker_line=dict(color="#1E3A5F", width=1)))
         fig_bar.add_trace(go.Bar(x=cats, y=vals, name="Your Score", marker_color=colors_bar,
                                   text=[f"{v:.1f}" for v in vals], textposition="outside",
-                                  textfont=dict(color="#3B82F6", size=10)))
+                                  textfont=dict(color="#0284C7", size=10)))
         fig_bar.update_layout(
             barmode="overlay", paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-            font=dict(color="#3B82F6", size=10),
-            xaxis=dict(gridcolor="#1E3A5F", tickfont=dict(color="#3B82F6", size=9)),
+            font=dict(color="#0284C7", size=10),
+            xaxis=dict(gridcolor="#1E3A5F", tickfont=dict(color="#0284C7", size=9)),
             yaxis=dict(gridcolor="#1E3A5F"),
-            legend=dict(font=dict(color="#3B82F6", size=10)),
+            legend=dict(font=dict(color="#0284C7", size=10)),
             height=320, margin=dict(t=20, b=60, l=10, r=10),
         )
         st.plotly_chart(fig_bar, use_container_width=True)
@@ -1408,10 +1408,10 @@ elif st.session_state.step == "score":
                                marker_line=dict(color="#1E3A5F", width=0)))
     fig_trend.update_layout(
         barmode="group", paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-        font=dict(color="#3B82F6"),
+        font=dict(color="#0284C7"),
         xaxis=dict(gridcolor="#1E3A5F", title="Financial Year"),
         yaxis=dict(gridcolor="#1E3A5F", title="Amount (₹)"),
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(color="#3B82F6", size=10)),
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(color="#0284C7", size=10)),
         height=320, margin=dict(t=30, b=40, l=10, r=10),
     )
     st.plotly_chart(fig_trend, use_container_width=True)
@@ -1489,27 +1489,27 @@ elif st.session_state.step == "score":
             Based on your FinBridge Score of <b>{fb} ({label})</b>:
             <table style='width:100%;border-collapse:collapse;margin-top:0.8rem;font-size:0.82rem;'>
                 <tr style='border-bottom:1px solid #1E3A5F;'>
-                    <th style='text-align:left;padding:0.4rem 0.8rem;color:#3B82F6;'>Loan Type</th>
-                    <th style='text-align:center;padding:0.4rem;color:#3B82F6;'>CIBIL Eligibility</th>
+                    <th style='text-align:left;padding:0.4rem 0.8rem;color:#0284C7;'>Loan Type</th>
+                    <th style='text-align:center;padding:0.4rem;color:#0284C7;'>CIBIL Eligibility</th>
                     <th style='text-align:center;padding:0.4rem;color:#F0B429;'>FinBridge Eligibility</th>
                 </tr>
                 <tr style='border-bottom:1px solid #0A1628;'>
-                    <td style='padding:0.5rem 0.8rem;color:#3B82F6;'>Home Loan</td>
+                    <td style='padding:0.5rem 0.8rem;color:#0284C7;'>Home Loan</td>
                     <td style='text-align:center;padding:0.5rem;color:{"#3EC87A" if ci>=700 else "#E05C5C"};'>{"✅ Eligible" if ci>=700 else "⚠️ Marginal" if ci>=650 else "❌ Unlikely"}</td>
                     <td style='text-align:center;padding:0.5rem;color:{"#3EC87A" if fb>=700 else "#E05C5C"};'>{"✅ Eligible" if fb>=700 else "⚠️ Marginal" if fb>=650 else "❌ Unlikely"}</td>
                 </tr>
                 <tr style='border-bottom:1px solid #0A1628;'>
-                    <td style='padding:0.5rem 0.8rem;color:#3B82F6;'>Personal Loan</td>
+                    <td style='padding:0.5rem 0.8rem;color:#0284C7;'>Personal Loan</td>
                     <td style='text-align:center;padding:0.5rem;color:{"#3EC87A" if ci>=680 else "#E05C5C"};'>{"✅ Eligible" if ci>=680 else "⚠️ Possible" if ci>=620 else "❌ Unlikely"}</td>
                     <td style='text-align:center;padding:0.5rem;color:{"#3EC87A" if fb>=680 else "#E05C5C"};'>{"✅ Eligible" if fb>=680 else "⚠️ Possible" if fb>=620 else "❌ Unlikely"}</td>
                 </tr>
                 <tr style='border-bottom:1px solid #0A1628;'>
-                    <td style='padding:0.5rem 0.8rem;color:#3B82F6;'>Business / MSME Loan</td>
+                    <td style='padding:0.5rem 0.8rem;color:#0284C7;'>Business / MSME Loan</td>
                     <td style='text-align:center;padding:0.5rem;color:{"#3EC87A" if ci>=700 else "#E05C5C"};'>{"✅ Eligible" if ci>=700 else "⚠️ Marginal" if ci>=650 else "❌ Unlikely"}</td>
                     <td style='text-align:center;padding:0.5rem;color:{"#3EC87A" if fb>=660 else "#E05C5C"};'>{"✅ Eligible" if fb>=660 else "⚠️ Possible" if fb>=620 else "❌ Unlikely"}</td>
                 </tr>
                 <tr>
-                    <td style='padding:0.5rem 0.8rem;color:#3B82F6;'>Gold / Secured Loan</td>
+                    <td style='padding:0.5rem 0.8rem;color:#0284C7;'>Gold / Secured Loan</td>
                     <td style='text-align:center;padding:0.5rem;color:#3EC87A;'>✅ Any Score</td>
                     <td style='text-align:center;padding:0.5rem;color:#3EC87A;'>✅ Any Score</td>
                 </tr>
@@ -1526,7 +1526,7 @@ elif st.session_state.step == "score":
         "Marginal":  ("🔶 Below average — limited options; collateral or guarantor strongly advised.",               "#E08929"),
         "Poor":      ("🚨 Needs improvement — focus on cash-flow discipline before applying for unsecured credit.",  "#E05C5C"),
     }
-    msg, col = interpretation.get(label, ("", "#3B82F6"))
+    msg, col = interpretation.get(label, ("", "#0284C7"))
     st.markdown(f"""
     <div style='background:rgba(0,0,0,0.2);border:1px solid {col};border-radius:10px;padding:1rem 1.3rem;color:{col};font-size:0.92rem;margin-top:0.5rem;'>
         {msg}
@@ -1556,10 +1556,10 @@ elif st.session_state.step == "comparison":
     with col_ci:
         st.markdown(f"""
         <div style='text-align:center;padding:2rem 1rem;background:#112240;border:1px solid #1E3A5F;border-radius:14px;'>
-            <div style='font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#3B82F6;margin-bottom:0.5rem;'>Traditional CIBIL Score</div>
+            <div style='font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#0284C7;margin-bottom:0.5rem;'>Traditional CIBIL Score</div>
             <div style='font-family:"Playfair Display",serif;font-size:4rem;font-weight:700;color:{color_ci};'>{ci}</div>
             <span class='badge {badge_ci}' style='font-size:0.9rem;padding:0.35rem 1rem;'>{label_ci}</span>
-            <div style='font-size:0.75rem;color:#3B82F6;margin-top:1rem;'>Bureau-based | Payment History Focused</div>
+            <div style='font-size:0.75rem;color:#0284C7;margin-top:1rem;'>Bureau-based | Payment History Focused</div>
         </div>
         """, unsafe_allow_html=True)
     with col_fb:
@@ -1568,7 +1568,7 @@ elif st.session_state.step == "comparison":
             <div style='font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#F0B429;margin-bottom:0.5rem;'>FinBridge Credit Score</div>
             <div style='font-family:"Playfair Display",serif;font-size:4rem;font-weight:700;color:{color_fb};'>{fb}</div>
             <span class='badge {badge_fb}' style='font-size:0.9rem;padding:0.35rem 1rem;'>{label_fb}</span>
-            <div style='font-size:0.75rem;color:#3B82F6;margin-top:1rem;'>Bank Statement Driven | Cash-Flow Intelligence</div>
+            <div style='font-size:0.75rem;color:#0284C7;margin-top:1rem;'>Bank Statement Driven | Cash-Flow Intelligence</div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -1576,9 +1576,9 @@ elif st.session_state.step == "comparison":
 
     fig_comp = go.Figure()
     fig_comp.add_trace(go.Bar(name="Traditional Score", x=["Score"], y=[ci],  marker_color=color_ci, width=0.25,
-                               text=[ci], textposition="outside", textfont=dict(color="#3B82F6", size=14)))
+                               text=[ci], textposition="outside", textfont=dict(color="#0284C7", size=14)))
     fig_comp.add_trace(go.Bar(name="FinBridge Score",   x=["Score"], y=[fb],  marker_color=color_fb, width=0.25,
-                               text=[fb], textposition="outside", textfont=dict(color="#3B82F6", size=14)))
+                               text=[fb], textposition="outside", textfont=dict(color="#0284C7", size=14)))
     for y0, y1, label_t in [(750,900,"Excellent"),(700,749,"Good"),(650,699,"Fair"),(600,649,"Marginal"),(300,599,"Poor")]:
         fig_comp.add_hrect(y0=y0, y1=y1, fillcolor="rgba(255,255,255,0.02)", line_width=0, annotation_text=label_t, annotation_position="right")
     fig_comp.update_layout(
@@ -1586,8 +1586,8 @@ elif st.session_state.step == "comparison":
         paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
         yaxis=dict(range=[300, 960], gridcolor="#1E3A5F"),
         xaxis=dict(gridcolor="#1E3A5F"),
-        font=dict(color="#3B82F6"),
-        legend=dict(font=dict(color="#3B82F6"), orientation="h", y=1.1),
+        font=dict(color="#0284C7"),
+        legend=dict(font=dict(color="#0284C7"), orientation="h", y=1.1),
         margin=dict(t=40, b=20, l=10, r=70),
     )
     st.plotly_chart(fig_comp, use_container_width=True)
@@ -1609,15 +1609,15 @@ elif st.session_state.step == "comparison":
         ("India Relevance",          "Urban / salaried bias",                     "Inclusive of semi-urban & rural patterns"),
     ]
     header_html = "<div style='display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px;'>" + \
-        "".join(f"<div style='background:#0A1628;border:1px solid #1E3A5F;border-radius:8px;padding:0.7rem 1rem;font-size:0.8rem;font-weight:600;color:#3B82F6;text-transform:uppercase;letter-spacing:0.05em;'>{h}</div>"
+        "".join(f"<div style='background:#0A1628;border:1px solid #1E3A5F;border-radius:8px;padding:0.7rem 1rem;font-size:0.8rem;font-weight:600;color:#0284C7;text-transform:uppercase;letter-spacing:0.05em;'>{h}</div>"
                 for h in ["Parameter", "Traditional CIBIL", "FinBridge"]) + "</div>"
     rows_html = ""
     for param, trad, fb_val in comp_data:
         rows_html += f"""
         <div style='display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:6px;'>
-            <div style='background:#112240;border:1px solid #1E3A5F;border-radius:6px;padding:0.6rem 0.9rem;font-size:0.82rem;color:#3B82F6;font-weight:500;'>{param}</div>
-            <div style='background:#112240;border:1px solid #1E3A5F;border-radius:6px;padding:0.6rem 0.9rem;font-size:0.82rem;color:#3B82F6;'>{trad}</div>
-            <div style='background:linear-gradient(135deg,#1A3A5C,#0A1628);border:1px solid rgba(240,180,41,0.3);border-radius:6px;padding:0.6rem 0.9rem;font-size:0.82rem;color:#3B82F6;'>{fb_val}</div>
+            <div style='background:#112240;border:1px solid #1E3A5F;border-radius:6px;padding:0.6rem 0.9rem;font-size:0.82rem;color:#0284C7;font-weight:500;'>{param}</div>
+            <div style='background:#112240;border:1px solid #1E3A5F;border-radius:6px;padding:0.6rem 0.9rem;font-size:0.82rem;color:#0284C7;'>{trad}</div>
+            <div style='background:linear-gradient(135deg,#1A3A5C,#0A1628);border:1px solid rgba(240,180,41,0.3);border-radius:6px;padding:0.6rem 0.9rem;font-size:0.82rem;color:#0284C7;'>{fb_val}</div>
         </div>"""
     st.markdown(header_html + rows_html, unsafe_allow_html=True)
 
@@ -1633,8 +1633,8 @@ elif st.session_state.step == "comparison":
             st.markdown(f"""
             <div class='metric-card' style='padding:1.3rem;'>
                 <div style='font-size:2rem;'>{icon}</div>
-                <div style='font-size:0.92rem;font-weight:600;color:#3B82F6;margin:0.5rem 0 0.3rem;'>{title}</div>
-                <div style='font-size:0.78rem;color:#3B82F6;'>{desc}</div>
+                <div style='font-size:0.92rem;font-weight:600;color:#0284C7;margin:0.5rem 0 0.3rem;'>{title}</div>
+                <div style='font-size:0.78rem;color:#0284C7;'>{desc}</div>
             </div>
             """, unsafe_allow_html=True)
 
@@ -1677,13 +1677,13 @@ elif st.session_state.step == "emi":
         fig_pie = go.Figure(go.Pie(
             labels=["Principal", "Total Interest"], values=[loan_amount, total_int],
             hole=0.55, marker=dict(colors=["#0EC4B0","#E05C5C"]),
-            textinfo="label+percent", textfont=dict(color="#3B82F6", size=11),
+            textinfo="label+percent", textfont=dict(color="#0284C7", size=11),
             hovertemplate="%{label}: ₹%{value:,.0f}<extra></extra>"
         ))
         fig_pie.add_annotation(text=f"Total<br>{format_inr(total_pmt)}", x=0.5, y=0.5, showarrow=False,
-                               font=dict(size=13, color="#3B82F6"))
+                               font=dict(size=13, color="#0284C7"))
         fig_pie.update_layout(paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-                              showlegend=True, legend=dict(font=dict(color="#3B82F6"), orientation="h", y=-0.1),
+                              showlegend=True, legend=dict(font=dict(color="#0284C7"), orientation="h", y=-0.1),
                               height=300, margin=dict(t=20, b=30, l=10, r=10))
         st.plotly_chart(fig_pie, use_container_width=True)
 
@@ -1712,8 +1712,8 @@ elif st.session_state.step == "emi":
             xaxis=dict(gridcolor="#1E3A5F"),
             yaxis=dict(gridcolor="#1E3A5F", title="Annual Payment (₹)"),
             yaxis2=dict(overlaying="y", side="right", title="Balance (₹)", gridcolor="#1E3A5F"),
-            legend=dict(font=dict(color="#3B82F6", size=9), orientation="h", y=1.1),
-            font=dict(color="#3B82F6", size=9),
+            legend=dict(font=dict(color="#0284C7", size=9), orientation="h", y=1.1),
+            font=dict(color="#0284C7", size=9),
             height=300, margin=dict(t=30, b=40, l=10, r=10),
         )
         st.plotly_chart(fig_amort, use_container_width=True)
@@ -1743,7 +1743,7 @@ elif st.session_state.step == "emi":
     st.markdown(f"""
     <div style='background:rgba(0,0,0,0.2);border:2px solid {net_color};border-radius:10px;padding:1rem 1.3rem;margin-top:1rem;'>
         <span style='color:{net_color};font-size:1rem;font-weight:600;'>{net_icon} Net Monthly Surplus: <span style='font-family:"Playfair Display",serif;font-size:1.4rem;'>₹{net_after_emi:,.0f}</span></span>
-        <div style='font-size:0.8rem;color:#3B82F6;margin-top:0.4rem;'>{note}</div>
+        <div style='font-size:0.8rem;color:#0284C7;margin-top:0.4rem;'>{note}</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -1789,24 +1789,24 @@ elif st.session_state.step == "report":
         <div style='display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;'>
             <div>
                 <div style='font-family:"Playfair Display",serif;font-size:1.5rem;font-weight:700;color:#F0B429;'>FinBridge Credit Intelligence Report</div>
-                <div style='color:#3B82F6;font-size:0.82rem;margin-top:0.3rem;'>Confidential | Generated: {datetime.now().strftime("%B %Y")}</div>
+                <div style='color:#0284C7;font-size:0.82rem;margin-top:0.3rem;'>Confidential | Generated: {datetime.now().strftime("%B %Y")}</div>
             </div>
             <div style='text-align:right;'>
-                <div style='font-size:0.75rem;color:#3B82F6;'>FinBridge Score</div>
+                <div style='font-size:0.75rem;color:#0284C7;'>FinBridge Score</div>
                 <div style='font-family:"Playfair Display",serif;font-size:2.5rem;color:{color};font-weight:700;'>{fb}</div>
                 <span class='badge {badge}'>{label}</span>
             </div>
         </div>
         <hr style='border-color:#1E3A5F;margin:1rem 0;'>
         <div style='display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;font-size:0.82rem;'>
-            <div><span style='color:#3B82F6;'>Name:</span> <span style='color:#3B82F6;'>{prof.get("name","N/A")}</span></div>
-            <div><span style='color:#3B82F6;'>Age:</span> <span style='color:#3B82F6;'>{prof.get("age","N/A")}</span></div>
-            <div><span style='color:#3B82F6;'>Profile:</span> <span style='color:#3B82F6;'>{prof.get("profile_type","N/A")}</span></div>
-            <div><span style='color:#3B82F6;'>City:</span> <span style='color:#3B82F6;'>{prof.get("city","N/A")}</span></div>
-            <div><span style='color:#3B82F6;'>Occupation:</span> <span style='color:#3B82F6;'>{prof.get("occupation","N/A")}</span></div>
-            <div><span style='color:#3B82F6;'>Credit Cards:</span> <span style='color:#3B82F6;'>{prof.get("credit_cards","N/A")}</span></div>
-            <div><span style='color:#3B82F6;'>Active Loans:</span> <span style='color:#3B82F6;'>{prof.get("loans_active","N/A")}</span></div>
-            <div><span style='color:#3B82F6;'>Collateral:</span> <span style='color:#3B82F6;'>{prof.get("has_collateral","N/A")}</span></div>
+            <div><span style='color:#0284C7;'>Name:</span> <span style='color:#0284C7;'>{prof.get("name","N/A")}</span></div>
+            <div><span style='color:#0284C7;'>Age:</span> <span style='color:#0284C7;'>{prof.get("age","N/A")}</span></div>
+            <div><span style='color:#0284C7;'>Profile:</span> <span style='color:#0284C7;'>{prof.get("profile_type","N/A")}</span></div>
+            <div><span style='color:#0284C7;'>City:</span> <span style='color:#0284C7;'>{prof.get("city","N/A")}</span></div>
+            <div><span style='color:#0284C7;'>Occupation:</span> <span style='color:#0284C7;'>{prof.get("occupation","N/A")}</span></div>
+            <div><span style='color:#0284C7;'>Credit Cards:</span> <span style='color:#0284C7;'>{prof.get("credit_cards","N/A")}</span></div>
+            <div><span style='color:#0284C7;'>Active Loans:</span> <span style='color:#0284C7;'>{prof.get("loans_active","N/A")}</span></div>
+            <div><span style='color:#0284C7;'>Collateral:</span> <span style='color:#0284C7;'>{prof.get("has_collateral","N/A")}</span></div>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -1824,7 +1824,7 @@ elif st.session_state.step == "report":
         ("Traditional Score",  str(ci),              "#0EC4B0"),
         ("Avg Annual Income",  format_inr(avg_inc),  "#3EC87A"),
         ("Avg Savings Rate",   f"{sav_rate:.1f}%",   "#F0B429"),
-        ("Total Bounces",      str(tot_bnc),          "#E05C5C" if tot_bnc > 2 else "#3B82F6"),
+        ("Total Bounces",      str(tot_bnc),          "#E05C5C" if tot_bnc > 2 else "#0284C7"),
     ]):
         with col:
             st.markdown(f"""<div class='metric-card'><div class='metric-val' style='font-size:1.4rem;color:{clr};'>{val}</div><div class='metric-lab'>{lbl}</div></div>""", unsafe_allow_html=True)
@@ -1839,7 +1839,7 @@ elif st.session_state.step == "report":
         strength= "Strong" if pct >= 75 else "Moderate" if pct >= 50 else "Weak"
         st.markdown(f"""
         <div style='display:grid;grid-template-columns:180px 1fr 80px 70px;gap:1rem;align-items:center;margin-bottom:0.6rem;'>
-            <div style='font-size:0.85rem;color:#3B82F6;'>{comp_name}</div>
+            <div style='font-size:0.85rem;color:#0284C7;'>{comp_name}</div>
             <div style='background:#1E3A5F;border-radius:50px;height:8px;'>
                 <div style='width:{pct:.1f}%;background:{bar_col};border-radius:50px;height:8px;'></div>
             </div>
@@ -1862,7 +1862,7 @@ elif st.session_state.step == "report":
         if tot_bnc == 0:                             strengths.append("Zero bounce record — excellent payment behaviour")
         if not strengths: strengths.append("Continue building financial discipline for a stronger score")
         for s in strengths:
-            st.markdown(f"""<div style='background:rgba(62,200,122,0.05);border:1px solid rgba(62,200,122,0.2);border-radius:8px;padding:0.6rem 0.9rem;margin-bottom:0.5rem;font-size:0.83rem;color:#3B82F6;'>✅ {s}</div>""", unsafe_allow_html=True)
+            st.markdown(f"""<div style='background:rgba(62,200,122,0.05);border:1px solid rgba(62,200,122,0.2);border-radius:8px;padding:0.6rem 0.9rem;margin-bottom:0.5rem;font-size:0.83rem;color:#0284C7;'>✅ {s}</div>""", unsafe_allow_html=True)
 
     with col_imp:
         st.markdown("**🔧 Areas for Improvement**")
@@ -1876,7 +1876,7 @@ elif st.session_state.step == "report":
         if tot_bnc > 2:                              improvements.append(f"Address {tot_bnc} bounces recorded — serious negative signal")
         if not improvements: improvements.append("Excellent profile — maintain current financial discipline")
         for im in improvements:
-            st.markdown(f"""<div style='background:rgba(240,180,41,0.05);border:1px solid rgba(240,180,41,0.2);border-radius:8px;padding:0.6rem 0.9rem;margin-bottom:0.5rem;font-size:0.83rem;color:#3B82F6;'>⚠️ {im}</div>""", unsafe_allow_html=True)
+            st.markdown(f"""<div style='background:rgba(240,180,41,0.05);border:1px solid rgba(240,180,41,0.2);border-radius:8px;padding:0.6rem 0.9rem;margin-bottom:0.5rem;font-size:0.83rem;color:#0284C7;'>⚠️ {im}</div>""", unsafe_allow_html=True)
 
     st.markdown("<hr class='fb-divider'>", unsafe_allow_html=True)
     st.markdown("**📈 Score Improvement Projection**")
@@ -1897,7 +1897,7 @@ elif st.session_state.step == "report":
     fig_proj.update_layout(
         paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
         xaxis=dict(gridcolor="#1E3A5F"), yaxis=dict(gridcolor="#1E3A5F", range=[300, 950]),
-        font=dict(color="#3B82F6"),
+        font=dict(color="#0284C7"),
         height=250, margin=dict(t=20, b=30, l=10, r=10), showlegend=False,
     )
     st.plotly_chart(fig_proj, use_container_width=True)
